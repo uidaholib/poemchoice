@@ -1,0 +1,65 @@
+---
+title: poem table
+layout: base
+---
+
+
+<div id="box">
+
+<div id="poem">
+
+    <!-- class="search" automagically makes an input a search field. -->
+    <input class="search" placeholder="Search" />
+    <!-- class="sort" automagically makes an element a sort buttons. The date-sort value decides what to sort by. -->
+    <button class="sort" data-sort="title">title</button>
+    <button class="sort" data-sort="date">date</button>
+    <button class="sort" data-sort="author">author</button>
+    <button class="sort" data-sort="anger">Anger</button>
+    <button class="sort" data-sort="disgust">Disgust</button>
+    <button class="sort" data-sort="fear">Fear</button>
+    <button class="sort" data-sort="joy">Joy</button>
+    <button class="sort" data-sort="sadness">Sadness</button>
+
+    <table>
+        <thead>
+            <tr>
+                <td>Poem</td>
+                <td>Anger</td>
+                <td>Disgust</td>
+                <td>Fear</td>
+                <td>Joy</td>
+                <td>Sadness</td>
+            </tr>
+        </thead>
+
+    <tbody class="allPoems list">
+        {% for poem in site.data.poems %}
+        <tr>
+            <td>
+        <h2 class="title"><a href="{{ poem.link }}" target="_blank">{{ poem.title }}</a></h2>
+        <p class="post-meta date">Vandal Poem of the Day: {{ poem.date }}</p>
+        <p class="author"><em>by {{ poem.author }}</em></p>
+            </td>
+        <td class="anger line">{{ poem.emotion_anger | round: 3 }}</td>
+        <td class="disgust line">{{ poem.emotion_disgust | round: 3 }}</td>
+        <td class="fear line">{{ poem.emotion_fear | round: 3 }}</td>
+        <td class="joy line">{{ poem.emotion_joy | round: 3 }}</td>
+        <td class="sadness line">{{ poem.emotion_sadness | round: 3 }}</td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+    
+    </table>
+
+</div>
+
+<!-- add list.js http://www.listjs.com/ @javve -->
+<script src="js/list.min.js"></script>
+<script> 
+    var options = {
+        valueNames: [ 'title', 'date', 'author', 'sentiment', 'anger', 'disgust', 'fear', 'joy', 'sadness', 'keywords' ]
+    };
+
+    var userList = new List('poem', options);
+</script>

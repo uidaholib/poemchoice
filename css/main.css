@@ -1,0 +1,115 @@
+body{ 
+max-width: 1500px;
+margin: 0 auto;
+box-sizing: border-box;
+display: block;
+font-family: "Noto Sans", sans-serif;
+line-height: 1.5;
+font-weight: 400;
+color: #666666;
+background: white;
+}
+div#box {
+margin: 0 auto;
+}
+div#poem {
+margin: 3em auto 6em;
+max-width: 900px;
+}
+div#header{
+padding: 1.5em 8.334%;
+border-bottom: 1px solid #D4D4D4;
+position: relative;
+margin-bottom: 1.5em;
+}
+#header img { margin-right: 3em;}
+#menu-primary-container {
+    display:inline-block;
+    vertical-align: top;
+    margin-top:7px;
+}
+#menu-primary-items {
+    border: none;
+    margin: 0;
+    list-style: none;
+    font-size: 1em;
+    padding:0;
+
+}
+#menu-primary-items li {
+    display: inline-block;
+    border: none;
+    margin-right:20px;
+    position: relative;
+}
+#menu-primary-items a {
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 0.6875em;
+    line-height: 1.4545;
+    text-decoration: none;
+}
+.allPoems ul {
+    list-style: none;
+}
+.title {
+text-align: left;
+font-size: 2em;
+font-weight: 700;
+color: #1A1A1A;
+line-height: 1.5;
+margin:0;
+}
+.title a {
+    text-decoration: none;
+    border-bottom: solid 1px #D4D4D4;
+    transition: color 0.1s ease-in-out, border-color 0.1s ease-in-out;
+}
+.post-meta {
+text-transform: uppercase;
+letter-spacing: 0.07em;
+font-size: 0.6875em;
+line-height: 1.4545;
+margin-top:0;
+}
+.author {
+margin-top: 0;
+}
+a {
+color: #1A1A1A;
+}
+table { 
+    border-collapse: collapse; 
+    width: 100%;
+}
+th { 
+border-bottom: solid 1px #D4D4D4;
+text-align:left;
+}
+tr:nth-child(even) {
+background-color: #eee;
+}
+tr:nth-child(odd) {
+background-color:#fff;
+}
+td {
+padding:5px; 
+border-bottom:solid 1px #D4D4D4;
+}
+
+.em1{padding-left:1em;}
+.em2{padding-left:2em;}
+.em3{padding-left:3em;}
+.em4{padding-left:4em;}
+.em5{padding-left:5em;}
+.em6{padding-left:6em;}
+.em7{padding-left:7em;}
+.em8{padding-left:8em;}
+.em9{padding-left:9em;}
+.em10{padding-left:10em;}
+.em11{padding-left:11em;}
+.em12{padding-left:12em;}
+.em13{padding-left:13em;}
+.em14{padding-left:14em;}
+.em15{padding-left:15em;}
+.em16{padding-left:16em;}
