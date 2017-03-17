@@ -1,0 +1,19 @@
+body{ 
+    max-width: 1500px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: block;
+    font-family: $font-main;
+    line-height: 1.5;
+    font-weight: 400;
+    color: #666666;
+    background: $background-main;
+}
+h1 { 
+    color: $black-main; 
+}
+
+a {
+    color: $black-main;
+    text-decoration: none;
+}

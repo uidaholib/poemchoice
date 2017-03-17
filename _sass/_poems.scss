@@ -1,0 +1,48 @@
+#box {
+    margin: 3em auto 6em;
+    max-width: 900px;
+}
+#poem {
+}
+.title {
+    text-align: left;
+    font-size: 2em;
+    font-weight: 700;
+    color: $black-main;
+    line-height: 1.5;
+    margin:0;
+    a {
+        border-bottom: solid 1px $border-grey;
+    }
+}
+.vpoddate {
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 0.6875em;
+    line-height: 1.4545;
+    margin-top: 0;
+}
+.author {
+    margin-top: 0;
+}
+table { 
+    border-collapse: collapse; 
+    width: 100%;
+}
+.search {
+    float:right;
+    margin-bottom: 10px;
+}
+th {
+    td { padding: 0; }
+    button { width: 100%; }
+}
+tr:nth-child(even) { background-color: #eee; }
+tr::nth-child(odd) { background-color:#fff; }
+td {
+    padding:5px; 
+    border-bottom:solid 1px $border-grey;
+}
+.metric {
+    text-align: center;
+}

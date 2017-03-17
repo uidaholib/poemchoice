@@ -1,0 +1,18 @@
+---
+# main css for all pages
+---
+
+@charset "utf-8";
+
+$font-main: "Noto Sans", sans-serif;
+$background-main: white;
+$border-grey: #D4D4D4;
+$black-main: #1A1A1A;
+
+/* Import partials from `_sass` */
+@import
+    "base",
+    "vpodheader",
+    "poems",
+    "sad"
+;

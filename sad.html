@@ -1,0 +1,32 @@
+---
+title: Sadness Slider
+layout: base
+---
+<h1>Sadness Slider</h1>
+{% assign sadpoems = site.data.poems3 | sort: 'emotion_sadness' %}
+
+<p>Not Sad <input id="sadslider" type="range" min="1" max="{{ sadpoems | size }}" value="{{sadpoems | size | divided_by: 2 }}" onchange="showPoem(this.value)" /> Very Sad</p>
+
+<div id="poem">
+{% for poem in sadpoems %}
+    <div class="allpoems" id="p{{ forloop.index }}">
+        <h2 class="title"><a href="{{ poem.link }}" target="_blank">{{ poem.title }}</a></h2>
+        <p class="vpoddate">Vandal Poem of the Day: {{ poem.date }}</p>
+        <p class="author"><em>by {{ poem.author }}</em></p>
+    </div>
+{% endfor %}
+</div>
+
+<script type="text/javascript">
+function showPoem(newValue) {
+    var newId = "p" + newValue.toString();
+    var old = document.querySelectorAll(".allpoems");
+    var i;
+    for (i = 0; i < old.length; i++) {
+        old[i].style.display = "none";
+        }
+    document.getElementById(newId).style.display = "block";
+}
+</script>
+
+</div>

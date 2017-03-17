@@ -15,3 +15,7 @@ url: "https://uidaholib.github.io"
 
 # Build settings
 markdown: kramdown
+# Sass
+sass:
+  sass_dir:         _sass
+  style:            :compressed
