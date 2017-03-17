@@ -49,9 +49,7 @@ margin-bottom: 1.5em;
     line-height: 1.4545;
     text-decoration: none;
 }
-.allPoems ul {
-    list-style: none;
-}
+h1 { color: #1A1A1A; }
 .title {
 text-align: left;
 font-size: 2em;
@@ -61,9 +59,9 @@ line-height: 1.5;
 margin:0;
 }
 .title a {
-    text-decoration: none;
-    border-bottom: solid 1px #D4D4D4;
-    transition: color 0.1s ease-in-out, border-color 0.1s ease-in-out;
+text-decoration: none;
+border-bottom: solid 1px #D4D4D4;
+transition: color 0.1s ease-in-out, border-color 0.1s ease-in-out;
 }
 .post-meta {
 text-transform: uppercase;
@@ -82,9 +80,15 @@ table {
     border-collapse: collapse; 
     width: 100%;
 }
-th { 
-border-bottom: solid 1px #D4D4D4;
-text-align:left;
+.search {
+    float:right;
+    margin-bottom: 10px;
+}
+th td {
+    padding: 0;
+}
+th button {
+    width: 100%;
 }
 tr:nth-child(even) {
 background-color: #eee;
@@ -95,6 +99,9 @@ background-color:#fff;
 td {
 padding:5px; 
 border-bottom:solid 1px #D4D4D4;
+}
+.metric {
+    text-align: center;
 }
 
 .em1{padding-left:1em;}
