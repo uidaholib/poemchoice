@@ -1,0 +1,101 @@
+---
+title: Sadness Slider
+layout: base
+---
+<style> 
+.title { font-size: 2.5em; }
+.line{  
+text-indent: -32px;
+margin: 0 0 0 32px;
+padding-right: 16px;
+line-height:28px;
+}
+.indentedline{
+text-indent: -32px;
+margin: 0 0 0 32px;
+padding-right: 16px;
+line-height:28px;
+padding-left:4em;
+}
+.bookinfo{
+padding-top:40px;
+}
+.citation{
+font-size:11px; 
+padding-top:20px;
+}
+.librarylink {
+    border-radius: 3px;
+    padding: 3px 5px;
+    background: white;
+    color: #666;
+    border: #666 solid 1px;
+    margin-left: 10%;
+    font-size: 10px;
+    white-space: nowrap;
+}
+a {
+color: #1A1A1A;
+}
+.em1{padding-left:1em;}
+.em2{padding-left:2em;}
+.em3{padding-left:3em;}
+.em4{padding-left:4em;}
+.em5{padding-left:5em;}
+.em6{padding-left:6em;}
+.em7{padding-left:7em;}
+.em8{padding-left:8em;}
+.em9{padding-left:9em;}
+.em10{padding-left:10em;}
+.em11{padding-left:11em;}
+.em12{padding-left:12em;}
+.em13{padding-left:13em;}
+.em14{padding-left:14em;}
+.em15{padding-left:15em;}
+.em16{padding-left:16em;}
+</style>
+<h1>Sadness Slider</h1>
+{% assign sadpoems = site.data.poems_html | sort: 'emotion_sadness' %}
+
+<!--emotion_anger,emotion_disgust,emotion_fear,emotion_joy,emotion_sadness-->
+<!--
+<form id="emotion2" onchange="getEmotion();">
+  <input type="radio" name="emotion" value="anger" checked> Anger<br>
+  <input type="radio" name="emotion" value="disgust"> Disgust<br>
+  <input type="radio" name="emotion" value="fear"> Fear
+</form> 
+<div id="test"></div>
+<script>
+    function getEmotion() {
+    var x = document.getElementById("emotion2").emotion.value;
+    document.getElementById("test").innerHTML = "your " + x;
+}
+</script>
+-->
+
+<p>Not Sad <input id="sadslider" type="range" min="1" max="{{ sadpoems | size }}" value="{{sadpoems | size | divided_by: 2 }}" onchange="showPoem(this.value)" /> Very Sad</p>
+
+<div id="poem">
+{% for poem in sadpoems %}
+    <div class="allpoems" id="p{{ forloop.index }}">
+        <h2 class="title"><a href="{{ poem.link }}" target="_blank">{{ poem.title }}</a></h2>
+        <p class="vpoddate">Vandal Poem of the Day: {{ poem.date }}</p>
+        {{ poem.poem }}
+    </div>
+{% endfor %}
+</div>
+
+<script type="text/javascript">
+
+function showPoem(newValue) {
+    var newId = "p" + newValue.toString();
+    var old = document.querySelectorAll(".allpoems");
+    var i;
+    for (i = 0; i < old.length; i++) {
+        old[i].style.display = "none";
+        }
+    document.getElementById(newId).style.display = "block";
+}
+</script>
+
+</div>
