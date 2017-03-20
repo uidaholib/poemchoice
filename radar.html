@@ -234,7 +234,7 @@ var LegendOptions = [{% for poem in poems %}'{{poem.title }}'{%if poem != forloo
 
 //Data
 var d = [
-            {% for poem in poems %}
+						{% for poem in poems %}
             [
                 {axis:"anger",value:{{ poem.emotion_anger }}},
                 {axis:"disgust",value:{{ poem.emotion_disgust }}},
