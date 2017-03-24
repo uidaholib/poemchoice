@@ -53,7 +53,9 @@ d3.tsv("poem_data_2017.tsv", function (data) {
         myChart.setBounds(50, 5, 850, 600)
         var x = myChart.addCategoryAxis("x", ["date","title","author"]);
         x.addOrderRule("Date");
-        myChart.addMeasureAxis("y", "value");
+        var y = myChart.addMeasureAxis("y", "value");
+        y.overrideMax = 1.0;
+        y.overrideMin = 0.0;
         myChart.addSeries(["emotion"], dimple.plot.line);
         var myLegend = myChart.addLegend(60, 10, 500, 20, "right");
         myChart.draw();
