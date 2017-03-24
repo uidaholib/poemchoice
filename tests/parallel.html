@@ -41,11 +41,11 @@ brushing example https://syntagmatic.github.io/parallel-coordinates/examples/bru
 }
 </style>
 <div id="example" class="parcoords" style="width:1000px;height:500px;"></div>
-<p>Parallel coordinates</p>
+<p>Parallel coordinates, emotion values of Devin Becker's VPOD poems. Using <a href="https://github.com/syntagmatic/parallel-coordinates" target="_blank">Syntagmatic parallel-coordinates</a></p>
 
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="js/d3.parcoords.js"></script>
-<script src="js/d3.svg.multibrush.js"></script>
+<script src="{{site.url}}/js/d3.v3.min.js"></script>
+<script src="{{site.url}}/js/d3.parcoords.js"></script>
+<script src="{{site.url}}/js/d3.svg.multibrush.js"></script>
 <script>
 
 {% assign poems = site.data.poems4 | where: "author", "Devin Becker" %}

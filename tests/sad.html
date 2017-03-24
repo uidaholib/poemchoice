@@ -3,6 +3,7 @@ title: Sadness Slider
 layout: base
 ---
 <h1>Sadness Slider</h1>
+<p>Please choose a poem based on your desired level of sadness:</p>
 {% assign sadpoems = site.data.poems3 | sort: 'emotion_sadness' %}
 
 <p>Not Sad <input id="sadslider" type="range" min="1" max="{{ sadpoems | size }}" value="{{sadpoems | size | divided_by: 2 }}" onchange="showPoem(this.value)" /> Very Sad</p>

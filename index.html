@@ -3,8 +3,9 @@ title: Emotion Sort
 layout: base
 ---
 <h1>VPOD Emotion Sorter</h1>
+<p>Find a VPOD poem based on its emotional metrics! Click the column headers to sort. Filter with the simple search.</a>
 <div id="poem">
-    <input class="search" placeholder="Search" />
+    <input class="search" placeholder=" Search" />
     <table>
         <tr>
             <th><button class="sort" data-sort="title">Poem</button></th>
@@ -37,7 +38,7 @@ layout: base
 <script src="js/list.min.js"></script>
 <script> 
     var options = {
-        valueNames: [ 'title', 'anger', 'disgust', 'fear', 'joy', 'sadness' ]
+        valueNames: [ 'title', 'author', 'anger', 'disgust', 'fear', 'joy', 'sadness' ]
     };
     var userList = new List('poem', options);
 </script>

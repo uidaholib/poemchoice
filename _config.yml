@@ -10,8 +10,8 @@ title: poemchoice
 
 description: > 
   playing with NLU of vpod poetry.
-baseurl: "/poemchoice" # the subpath of your site, e.g. /blog
-url: "https://uidaholib.github.io"
+# baseurl: "/poemchoice" # the subpath of your site, e.g. /blog
+url: "https://uidaholib.github.io/poemchoice"
 
 # Build settings
 markdown: kramdown
