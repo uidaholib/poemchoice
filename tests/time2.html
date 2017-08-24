@@ -1,0 +1,88 @@
+---
+title: Emotional Time Series
+---
+<html>
+    <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="shortcut icon" type="image/x-icon" href="{{site.url}}/favicon.ico">
+            
+                <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.url }}">
+<script src="{{site.url}}/js/d3.v4.min.js"></script>
+<script src="{{site.url}}/js/dimple.v2.3.0.min.js"></script>
+    </head>
+    <body>
+<h1>Emotional time series</h1>
+<p>If you read VPOD each day of Spring 2017 semester, the graph below represents the complex emotional rollercoaster you will experience. Click on the colored rectangles of each emotion to toggle the line off and on.</p>
+<div id="chartContainer">
+</div>
+<p>Made with <a href="http://dimplejs.org/" target="_blank">Dimplejs</a></p>
+
+<script type="text/javascript">
+// set horz, vert size of svg canvas
+    var svg = dimple.newSvg("#chartContainer", 1500, 900);
+      d3.tsv("/data/poem_data_2017.tsv", function (data) {
+        var myChart = new dimple.chart(svg, data);
+        // set the horz, vert size of the chart inside the svg, smaller than the svg
+        myChart.setBounds(50, 5, 1400, 800)
+        var x = myChart.addCategoryAxis("x", ["date","title","author"]);
+        x.addOrderRule("Date");
+        var y = myChart.addMeasureAxis("y", "value");
+        y.overrideMax = 1.0;
+        y.overrideMin = 0.0;
+        myChart.addSeries(["emotion"], dimple.plot.line);
+        var myLegend = myChart.addLegend(60, 10, 500, 20, "right");
+        myChart.draw();
+
+        // orphan the legend. This means it will not respond to graph updates. 
+        myChart.legends = [];
+
+        // d3 add legend instructions
+        svg.selectAll("title_text")
+          .data(["Click to toggle emotions:"])
+          .enter()
+          .append("text")
+            .attr("x", 65)
+            .attr("y", function (d, i) { return 18 + i * 14; })
+            .style("font-family", "sans-serif")
+            .style("font-size", "10px")
+            .style("color", "Black")
+            .text(function (d) { return d; });
+
+        // Get a unique list of emotion values to use when filtering
+        var filterValues = dimple.getUniqueValues(data, "emotion");
+        // Get all the rectangles from our now orphaned legend
+        myLegend.shapes.selectAll("rect")
+          // Add a click event to each rectangle
+          .on("click", function (e) {
+            // This indicates whether the item is already visible or not
+            var hide = false;
+            var newFilters = [];
+            // If the filters contain the clicked shape hide it
+            filterValues.forEach(function (f) {
+              if (f === e.aggField.slice(-1)[0]) {
+                hide = true;
+              } else {
+                newFilters.push(f);
+              }
+            });
+            // Hide the shape or show it
+            if (hide) {
+              d3.select(this).style("opacity", 0.2);
+            } else {
+              newFilters.push(e.aggField.slice(-1)[0]);
+              d3.select(this).style("opacity", 0.8);
+            }
+            // Update the filters
+            filterValues = newFilters;
+            // Filter the data
+            myChart.data = dimple.filterData(data, "emotion", filterValues);
+            // Passing a duration parameter makes the chart animate. Without
+            // it there is no transition
+            myChart.draw(800);
+          });
+      });
+  </script>
+    </body>
+</html>
