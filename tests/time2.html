@@ -22,7 +22,7 @@ title: Emotional Time Series
 <script type="text/javascript">
 // set horz, vert size of svg canvas
     var svg = dimple.newSvg("#chartContainer", 1500, 900);
-      d3.tsv("/data/poem_data_2017.tsv", function (data) {
+      d3.tsv("{{site.url}}/data/poem_data_2017.tsv", function (data) {
         var myChart = new dimple.chart(svg, data);
         // set the horz, vert size of the chart inside the svg, smaller than the svg
         myChart.setBounds(50, 5, 1400, 800)
